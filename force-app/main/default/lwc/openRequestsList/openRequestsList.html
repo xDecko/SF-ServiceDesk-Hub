@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Open Service Requests">
+        <template if:true={requests}>
+            <template for:each={requests} for:item="req">
+                <div key={req.Id} style="padding: 8px; border-bottom: 1px solid #ddd;">
+                    <p><strong>{req.Name}</strong></p>
+                    <p>{req.Subject__c}</p>
+                    <p>Status: {req.Status__c}</p>
+                    <p>Priority: {req.Priority__c}</p>
+                    <p>Due: {req.Due_Date__c}</p>
+                </div>
+            </template>
+        </template>
+
+        <template if:true={error}>
+            <p style="color: red;">Error loading data</p>
+        </template>
+    </lightning-card>
+</template>
